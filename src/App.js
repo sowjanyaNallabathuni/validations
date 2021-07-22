@@ -16,7 +16,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
   
-// Creating styles
+
 const useStyles = makeStyles({
     root: {
         "& > *": {
@@ -32,22 +32,22 @@ const useStyles = makeStyles({
 });
   
 function TableDemo() {
-    // Creating style object
+    
     const classes = useStyles();
   
-    // Defining a state named rows
-    // which we can update by calling on setRows function
+    
+  
     const [rows, setRows] = useState([
         { id: 1, firstname: "", lastname: "", city: "" },
     ]);
   
-    // Initial states
+   
     const [open, setOpen] = React.useState(false);
     const [isEdit, setEdit] = React.useState(false);
     const [disable, setDisable] = React.useState(true);
     const [showConfirm, setShowConfirm] = React.useState(false);
   
-    // Function For closing the alert snackbar
+    
     const handleClose = (event, reason) => {
         if (reason === "clickaway") {
             return;
@@ -55,7 +55,7 @@ function TableDemo() {
         setOpen(false);
     };
   
-    // Function For adding new row object
+   
     const handleAdd = () => {
         setRows([
             ...rows,
@@ -67,14 +67,13 @@ function TableDemo() {
         setEdit(true);
     };
   
-    // Function to handle edit
+    
     const handleEdit = (i) => {
-        // If edit mode is true setEdit will 
-        // set it to false and vice versa
+       
         setEdit(!isEdit);
     };
   
-    // Function to handle save
+    
     const handleSave = () => {
         setEdit(!isEdit);
         setRows(rows);
@@ -83,9 +82,7 @@ function TableDemo() {
         setOpen(true);
     };
   
-    // The handleInputChange handler can be set up to handle
-    // many different inputs in the form, listen for changes 
-    // to input elements and record their values in state
+ 
     const handleInputChange = (e, index) => {
         setDisable(false);
         const { name, value } = e.target;
@@ -94,13 +91,12 @@ function TableDemo() {
         setRows(list);
     };
   
-    // Showing delete confirmation to users
+    
     const handleConfirm = () => {
         setShowConfirm(true);
     };
   
-    // Handle the case of delete confirmation where 
-    // user click yes delete a specific row of id:i
+   
     const handleRemoveClick = (i) => {
         const list = [...rows];
         list.splice(i, 1);
@@ -108,8 +104,7 @@ function TableDemo() {
         setShowConfirm(false);
     };
   
-    // Handle the case of delete confirmation 
-    // where user click no 
+   
     const handleNo = () => {
         setShowConfirm(false);
     };
